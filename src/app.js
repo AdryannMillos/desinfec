@@ -15,7 +15,9 @@ app.use((req, res, next) => {
 
     next();
 });
+require("./modules/login/middleware/auth");
 
-app.use("/api/v1", require("./routes/api.routes"));
+app.use("/api/v1", require("./modules/login/routes/api.routes"));
+app.use("/api/v1/user", require("./modules/user/routes/api.routes"));
 
 module.exports = app;

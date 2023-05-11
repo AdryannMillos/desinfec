@@ -10,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
         {
             firstname: DataTypes.STRING,
             lastname: DataTypes.STRING,
+            role_id: DataTypes.INTEGER,
             phone: {
                 type: DataTypes.STRING,
                 unique: true,
@@ -23,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
         {
             sequelize,
             modelName: "User",
-            tableName: 'users'
+            tableName: "users",
         }
     );
     return User;
