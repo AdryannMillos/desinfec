@@ -19,5 +19,11 @@ require("./modules/login/middleware/auth");
 
 app.use("/api/v1", require("./modules/login/routes/api.routes"));
 app.use("/api/v1/user", require("./modules/user/routes/api.routes"));
+app.use("/api/v1/customer", require("./modules/customer/routes/api.routes"));
+app.use("/api/v1/service", require("./modules/service/routes/api.routes"));
+app.use(
+    "/api/v1/customer-historic",
+    require("./modules/customerHistoric/routes/api.routes")
+);
 
 module.exports = app;

@@ -9,10 +9,16 @@ module.exports = (sequelize, DataTypes) => {
             CustomerHistoric.belongsTo(models.Service, {
                 foreignKey: "service_id",
             });
+            CustomerHistoric.belongsTo(models.User, {
+                foreignKey: "user_id",
+            });
         }
     }
     CustomerHistoric.init(
         {
+            customer_id: DataTypes.INTEGER,
+            service_id: DataTypes.INTEGER,
+            user_id: DataTypes.INTEGER,
             observations: DataTypes.STRING,
             date: {
                 type: DataTypes.DATEONLY,

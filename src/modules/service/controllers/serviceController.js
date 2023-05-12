@@ -1,19 +1,19 @@
-const userCreateService = require("../services/userCreateService");
-const userListService = require("../services/userListService");
+const serviceCreateService = require("../services/serviceCreateService");
+const serviceListService = require("../services/serviceListService");
 
 async function index(req, res) {
-    let users;
+    let services;
     try {
         if (req.user.id !== 1) {
             return res.status(403).json({
                 message: "You are not allowed to perform this action",
             });
         }
-        users = await userListService.execute();
+        services = await serviceListService.execute();
     } catch (error) {
         return res.status(500).json({ message: error.message });
     }
-    return res.status(200).json(users);
+    return res.status(200).json(services);
 }
 
 async function store(req, res) {
@@ -23,23 +23,18 @@ async function store(req, res) {
                 message: "You are not allowed to perform this action",
             });
         }
-        const { firstname, lastname, roleId, phone, email, password } =
-            req.body;
+        const { name, cost } = req.body;
 
-        const userObj = {
-            firstname,
-            lastname,
-            role_id: roleId,
-            phone,
-            email,
-            password,
+        const serviceObj = {
+            name,
+            cost,
         };
 
-        await userCreateService.execute(userObj);
+        await serviceCreateService.execute(serviceObj);
     } catch (error) {
         return res.status(500).json({ message: error.message });
     }
-    return res.status(201).json({ message: "User created successfully" });
+    return res.status(201).json({ message: "Service created successfully" });
 }
 
 module.exports = {

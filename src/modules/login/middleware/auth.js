@@ -2,7 +2,7 @@ const passport = require("passport");
 const passportJwt = require("passport-jwt");
 const Models = require("../../../models/index");
 
-const { ExtractJwt } = passportJwt.ExtractJwt;
+const { ExtractJwt } = passportJwt;
 const StrategyJwt = passportJwt.Strategy;
 
 passport.use(
