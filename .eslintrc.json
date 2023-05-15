@@ -1,0 +1,22 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es2021": true,
+        "jest": true
+    },
+    "plugins": ["prettier"],
+    "extends": ["airbnb-base", "plugin:prettier/recommended"],
+    "overrides": [],
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
+    "env": {
+        "jest": true // now **/*.test.js files' env has both es6 *and* jest
+    },
+    "rules": {
+        "no-console": "warn",
+        "prettier/prettier": "error"
+        // "no-unused-vars": ["error", { "argsIgnorePattern": "next" }]
+    }
+}
