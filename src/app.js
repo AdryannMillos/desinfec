@@ -6,15 +6,12 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-
-    res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
-
-    app.use(cors());
-
-    next();
-});
+app.options(
+    "*",
+    cors({
+        allowedHeaders: "Authorization",
+    })
+);
 require("./modules/login/middleware/auth");
 
 app.use("/api/v1", require("./modules/login/routes/api.routes"));
