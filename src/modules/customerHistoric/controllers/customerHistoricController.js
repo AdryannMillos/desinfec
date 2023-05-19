@@ -4,7 +4,7 @@ const customerHistoricListService = require("../services/customerHistoricListSer
 async function index(req, res) {
     let customerHistoric;
     try {
-        if (req.user.id !== 1) {
+        if (req.user.role_id !== 1) {
             return res.status(403).json({
                 message: "You are not allowed to perform this action",
             });
@@ -18,7 +18,7 @@ async function index(req, res) {
 
 async function store(req, res) {
     try {
-        if (req.user.id !== 1) {
+        if (req.user.role_id !== 1) {
             return res.status(403).json({
                 message: "You are not allowed to perform this action",
             });
