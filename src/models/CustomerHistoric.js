@@ -20,8 +20,12 @@ module.exports = (sequelize, DataTypes) => {
             service_id: DataTypes.INTEGER,
             user_id: DataTypes.INTEGER,
             observations: DataTypes.STRING,
-            date: {
-                type: DataTypes.DATEONLY,
+            initialDate: {
+                type: DataTypes.DATE,
+                allowNull: false,
+            },
+            finalDate: {
+                type: DataTypes.DATE,
                 allowNull: false,
             },
             status: {

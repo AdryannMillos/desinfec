@@ -23,15 +23,23 @@ async function store(req, res) {
                 message: "You are not allowed to perform this action",
             });
         }
-        const { customerId, userId, serviceId, observations, date, status } =
-            req.body;
+        const {
+            customerId,
+            userId,
+            serviceId,
+            observations,
+            initialDate,
+            finalDate,
+            status,
+        } = req.body;
 
         const customerHistoricObj = {
             customer_id: customerId,
             user_id: userId,
             service_id: serviceId,
             observations,
-            date,
+            initialDate,
+            finalDate,
             status,
         };
 
